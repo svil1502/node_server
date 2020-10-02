@@ -18,10 +18,11 @@
                             <div class="col-xl-4">
                                 <div class="card mb-4">
                                     <div class="card-header">
+
                                         <img src="<%=firstLevelimg%>" style="width: 50px; border-radius: 3px;">
                                         <span>Первый уровень :</span>
                                         <span id="firstLevelname"><%=firstLevelname%></span>
-                                        <a href="/addLevelOne?id='<%=firstLevelname%>'&id2='<%=secondLevelname.name%>'" class="btn-plus">
+                                        <a href="/addLevelOne?l=1&id='<%=firstLevelname%>'&id2='<%=secondLevelname.name%>'" class="btn-plus">
                                          <span class="glyphicon glyphicon-plus"></span>
                                        </a>
                                         <table class="table table-bordered">
@@ -36,6 +37,7 @@
                                           <tbody>
                                           <% firstLevel.forEach(function(item){ %>
                                          <tr>
+
                                               <td><img src="<%=item.img %>" style="width: 50px; border-radius: 3px;"></td>
                                               <td><a href="?id='<%=item.name %>'" onclick="selectone('<%=item.name %>');"><%=item.name %></a></td>
                                               <td>
@@ -63,6 +65,9 @@
                                         <span>Второй уровень: </span>
                                         <span id="secondLevelname"><%=secondLevelname.name%></span>
                                         <span><%=secondLevelname.price%></span>
+                                        <a href="/addLevelOne?l=2&id='<%=firstLevelname%>'&id2='<%=secondLevelname.name%>'" class="btn-plus">
+                                                                                 <span class="glyphicon glyphicon-plus"></span>
+                                        </a>
                                         <table class="table table-bordered">
                                           <thead>
                                             <tr>
@@ -79,7 +84,14 @@
                                               <td><img src="<%=item.img %>" style="width: 50px; border-radius: 3px;"></td>
                                               <td><a href="?id=<%=firstLevelname%>&id2='<%=item.name %>'" onclick="selecttwo('<%=item.name %>');"><%=item.name %></a></td>
                                                <td><%=item.price %></td>
-                                              <td>@mdo</td>
+                                               <td>
+                                                                                             <button type="button" class="btn btn-success btn-sm">
+                                                                                             <span class="glyphicon glyphicon-pencil"></span>
+                                                                                             </button>
+                                                                                             <button type="button" class="btn btn-secondary btn-sm">
+                                                                                             <span class="glyphicon glyphicon-minus"></span>
+                                                                                             </button>
+                                                                                            </td>
                                             </tr>
                                            <%}); %>
 
@@ -94,6 +106,9 @@
                                     <div class="card-header">
                                         <i class="fas fa-table mr-1"></i>
                                         Третий уровень
+                                          <a href="/addLevelOne?l=1&id='<%=firstLevelname%>'&id2='<%=secondLevelname.name%>'" class="btn-plus">
+                                          <span class="glyphicon glyphicon-plus"></span>
+                                          </a>
                                          <table class="table table-bordered">
                                              <thead>
                                                 <tr>
@@ -109,7 +124,14 @@
                                                     <td><img src="<%=item.img %>" style="width: 50px; border-radius: 3px;"></td>
                                                     <td><%=item.name %></td>
                                                      <td><%=item.price %></td>
-                                                    <td>@mdo</td>
+                                                     <td>
+                                                                                                   <button type="button" class="btn btn-success btn-sm">
+                                                                                                   <span class="glyphicon glyphicon-pencil"></span>
+                                                                                                   </button>
+                                                                                                   <button type="button" class="btn btn-secondary btn-sm">
+                                                                                                   <span class="glyphicon glyphicon-minus"></span>
+                                                                                                   </button>
+                                                                                                  </td>
                                                     </tr>
                                                     <%}); %>
 
@@ -125,6 +147,8 @@
                 </main>
 
 
+ <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="/public/js/checkout.js"></script>
+
 </body>
 </html>

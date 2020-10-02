@@ -89,13 +89,14 @@ app.get('/admin_tab/', function (req, res) {
 });
 // Проверка ссылки на страницу с контактами
 app.get('/addLevelOne', function(req, res) {
+    let l = req.query.l;
     let nameLevel1 = req.query.id;
     let nameLevel2 = req.query.id2;
 
 
-    console.log("get-nameLevel:" + nameLevel1 + " - " + nameLevel2);
+    console.log("get-nameLevel:" + nameLevel1 + " - " + nameLevel2 + "l=" + l);
 
-    res.render('addLevelOne', {again: false, nameLevel1:nameLevel1, nameLevel2:nameLevel2});
+    res.render('addLevelOne', {again: false, nameLevel1:nameLevel1, nameLevel2:nameLevel2, l:l});
 
 });
 
@@ -106,6 +107,7 @@ app.post('/addLevelOne', function (req,res){
     let namelevel2 = req.body.namelevel2;
     let filedata = req.file;
     let group = req.body.group;
+    let price = req.body.price;
     let dir = './img/' + group;
     fs.mkdirSync(dir);
     ext = path.extname(filedata.originalname);

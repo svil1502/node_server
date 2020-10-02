@@ -4,3 +4,8 @@
 .btn-plus {
     float: right;
 }
+
+tr.line {
+    background: #b3d7ff;
+    color: #fff; /* Цвет текста при наведении */
+}
