@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel='stylesheet' href='/public/glyphicons-only-bootstrap/css/bootstrap.min.css' />
+      <link href="/public/css/style.css" rel="stylesheet" />
+</head>
+<body>
+            <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Админпанель</h1>
+
+                        <div class="row">
+                            <div class="col-xl-4">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <img src="<%=firstLevelimg%>" style="width: 50px; border-radius: 3px;">
+                                        <span>Первый уровень :</span>
+                                        <span id="firstLevelname"><%=firstLevelname%></span>
+                                        <a href="/addLevelOne?id='<%=firstLevelname%>'&id2='<%=secondLevelname.name%>'" class="btn-plus">
+                                         <span class="glyphicon glyphicon-plus"></span>
+                                       </a>
+                                        <table class="table table-bordered">
+                                          <thead>
+                                            <tr>
+
+                                              <th scope="col">Картинка</th>
+                                              <th scope="col">Название</th>
+                                              <th scope="col">Действия</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                          <% firstLevel.forEach(function(item){ %>
+                                         <tr>
+                                              <td><img src="<%=item.img %>" style="width: 50px; border-radius: 3px;"></td>
+                                              <td><a href="?id='<%=item.name %>'" onclick="selectone('<%=item.name %>');"><%=item.name %></a></td>
+                                              <td>
+                                               <button type="button" class="btn btn-success btn-sm">
+                                               <span class="glyphicon glyphicon-pencil"></span>
+                                               </button>
+                                               <button type="button" class="btn btn-secondary btn-sm">
+                                               <span class="glyphicon glyphicon-minus"></span>
+                                               </button>
+                                              </td>
+                                            </tr>
+                                           <%}); %>
+
+                                          </tbody>
+                                        </table>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <img src="<%=secondLevelimg%>" style="width: 50px; border-radius: 3px;">
+                                        <span>Второй уровень: </span>
+                                        <span id="secondLevelname"><%=secondLevelname.name%></span>
+                                        <span><%=secondLevelname.price%></span>
+                                        <table class="table table-bordered">
+                                          <thead>
+                                            <tr>
+
+                                              <th scope="col">Картинка</th>
+                                              <th scope="col">Название</th>
+                                               <th scope="col">Цена</th>
+                                              <th scope="col">Действия</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                          <% secondLevel.forEach(function(item){ %>
+                                         <tr>
+                                              <td><img src="<%=item.img %>" style="width: 50px; border-radius: 3px;"></td>
+                                              <td><a href="?id=<%=firstLevelname%>&id2='<%=item.name %>'" onclick="selecttwo('<%=item.name %>');"><%=item.name %></a></td>
+                                               <td><%=item.price %></td>
+                                              <td>@mdo</td>
+                                            </tr>
+                                           <%}); %>
+
+                                          </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-table mr-1"></i>
+                                        Третий уровень
+                                         <table class="table table-bordered">
+                                             <thead>
+                                                <tr>
+                                                    <th scope="col">Картинка</th>
+                                                    <th scope="col">Название</th>
+                                                     <th scope="col">Цена</th>
+                                                    <th scope="col">Действия</th>
+                                                </tr>
+                                             </thead>
+                                              <tbody>
+                                                    <% thirdLevel.forEach(function(item){ %>
+                                                    <tr>
+                                                    <td><img src="<%=item.img %>" style="width: 50px; border-radius: 3px;"></td>
+                                                    <td><%=item.name %></td>
+                                                     <td><%=item.price %></td>
+                                                    <td>@mdo</td>
+                                                    </tr>
+                                                    <%}); %>
+
+                                                    </tbody>
+                                         </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </main>
+
+
+<script src="/public/js/checkout.js"></script>
+</body>
+</html>
